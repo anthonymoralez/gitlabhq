@@ -26,7 +26,7 @@ class Key < ActiveRecord::Base
 
   scope :user_keys,       Key.joins(:user_relationship).where('key_relationships.project_id IS NULL').group('keys.id')
   scope :deploy_keys,     Key.joins(:project_relationships).where('key_relationships.user_id IS NULL').group('keys.id')
-  scope :unassigned_keys, Key.where("NOT EXISTS (select * from key_relationships r where r.key_id='keys'.id)")
+  scope :unassigned_keys, Key.where("NOT EXISTS (select * from key_relationships r where r.key_id=keys.id)")
 
   before_validation :strip_white_space
 
