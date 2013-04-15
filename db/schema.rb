@@ -70,16 +70,16 @@ ActiveRecord::Schema.define(:version => 20130325010343) do
   add_index "keys", ["identifier"], :name => "index_keys_on_identifier"
 
   create_table "merge_requests", :force => true do |t|
-    t.string   "target_branch",                       :null => false
-    t.string   "source_branch",                       :null => false
-    t.integer  "project_id",                          :null => false
+    t.string   "target_branch", :null => false
+    t.string   "source_branch", :null => false
+    t.integer  "project_id",    :null => false
     t.integer  "author_id"
     t.integer  "assignee_id"
     t.string   "title"
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.text     "st_commits",    :limit => 2147483647
-    t.text     "st_diffs",      :limit => 2147483647
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.text     "st_commits"
+    t.text     "st_diffs"
     t.integer  "milestone_id"
     t.string   "state"
     t.string   "merge_status"
